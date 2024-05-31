@@ -1,0 +1,169 @@
+@font-face {
+  font-family: "PokemonFont";
+  src: url("../public/fonts/b.ttf") format("truetype");
+}
+
+body,
+html,
+#root {
+  height: 100%;
+  margin: 0;
+  font-family: "PokemonFont", sans-serif;
+}
+
+.app {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  color: white;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../public/bg.gif");
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+.content {
+  display: flex;
+  width: 100%;
+  z-index: 1;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar {
+  width: 250px;
+  height: 90vh;
+  background-color: rgba(186, 241, 194, 0.221);
+  border: 1px solid rgba(1, 60, 20, 0.922);
+  z-index: 2;
+  margin: auto 0 20px 20px;
+  overflow: scroll;
+  border-radius: 15px;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+.details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 2;
+}
+
+.p-list {
+  display: flex;
+  flex-direction: column;
+}
+.p-item {
+  display: flex;
+  align-items: center;
+  padding: 5px 0 5px 15px;
+  border-bottom: 0.5px solid rgba(1, 60, 20, 0.922);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.p-item:hover {
+  background-color: #044d1b80;
+}
+
+.p-item.selected {
+  background-color: #0c7a0f95;
+  font-weight: bold;
+}
+
+.info-card,
+.stats-card,
+.abilities-card,
+.moves-card {
+  background-color: rgba(186, 241, 194, 0.221);
+  border: 1px solid rgba(1, 60, 20, 0.922);
+  border-radius: 15px;
+  padding: 20px;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.info-card {
+  width: 400px;
+  height: max-content;
+}
+
+.card-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stats-card {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin-left: 300px;
+  margin-bottom: 30px;
+  width: 200px;
+  height: max-content;
+}
+
+.abilities-card {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin-left: 300px;
+  margin-top: 140px;
+  width: 200px;
+  max-height: 170px;
+  overflow-y: auto;
+}
+
+.moves-card {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-right: 30px;
+  margin-top: 140px;
+  width: 200px;
+  max-height: 570px;
+  overflow-y: auto;
+}
+
+.card-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hint {
+  font-size: small;
+  margin: 0;
+  background-color: rgba(2, 95, 16, 0.932);
+  border-radius: 20px;
+  padding: 10px 0 10px 0;
+}
+
+.loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+}
