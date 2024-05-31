@@ -45,7 +45,15 @@ html,
 .sidebar {
   width: 250px;
   height: 90vh;
-  background-color: rgba(186, 241, 194, 0.221);
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(20px);
+  box-shadow:
+    0 15px 30px rgba(0, 0, 0, 0.4),
+    0 10px 10px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(
+    300deg,
+    rgba(186, 241, 194, 0.8) 0%,
+    rgba(1, 60, 20, 0.8) 70%
+  );
   border: 1px solid rgba(1, 60, 20, 0.922);
   z-index: 2;
   margin: auto 0 20px 20px;
@@ -95,12 +103,67 @@ html,
 .stats-card,
 .abilities-card,
 .moves-card {
-  background-color: rgba(186, 241, 194, 0.221);
-  border: 1px solid rgba(1, 60, 20, 0.922);
+  background: linear-gradient(
+    135deg,
+    rgba(186, 241, 194, 0.6) 0%,
+    rgba(1, 60, 20, 0.6) 100%
+  );
+  border: 1px solid rgba(1, 60, 20, 0.9);
   border-radius: 15px;
   padding: 20px;
   z-index: 2;
   overflow: hidden;
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.3),
+    0 6px 6px rgba(0, 0, 0, 0.15);
+  transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.info-card:hover,
+.stats-card:hover,
+.abilities-card:hover,
+.moves-card:hover {
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(20px);
+  box-shadow:
+    0 15px 30px rgba(0, 0, 0, 0.4),
+    0 10px 10px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(
+    135deg,
+    rgba(186, 241, 194, 0.8) 0%,
+    rgba(1, 60, 20, 0.8) 100%
+  );
+}
+
+.info-card::before,
+.stats-card::before,
+.abilities-card::before,
+.moves-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 15px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(0, 0, 0, 0.1)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.info-card:hover::before,
+.stats-card:hover::before,
+.abilities-card:hover::before,
+.moves-card:hover::before {
+  opacity: 1;
 }
 
 .info-card {
